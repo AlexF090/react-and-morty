@@ -3,12 +3,10 @@ import Header from './components/header';
 import Card from './components/card';
 import Navbar from './components/navbar';
 import styled from 'styled-components';
-import GlobalStyle from './style/globalStyles.jsx';
 
 function App() {
   return (
     <>
-      <GlobalStyle />
       <Header />
       <Main>
         <Card />
