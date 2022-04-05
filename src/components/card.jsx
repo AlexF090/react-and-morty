@@ -2,15 +2,15 @@ import styled from 'styled-components';
 
 const Card = ({ img, name }) => {
   return (
-    <CardList>
+    <CardContainer>
       <CardImg src={img} alt={`Profile Picture ${name}`} />
       <CardName>{name}</CardName>
       <CardButton>show more</CardButton>
-    </CardList>
+    </CardContainer>
   );
 };
 
-const CardList = styled.li`
+const CardContainer = styled.li`
   list-style: none;
   text-align: center;
   border: 2px solid #9ef01a;

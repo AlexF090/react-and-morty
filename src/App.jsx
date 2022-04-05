@@ -5,16 +5,6 @@ import Navbar from './components/navbar';
 import styled from 'styled-components';
 import Card from './components/card';
 
-// const Card = ({ img, name }) => {
-//   return (
-//     <li>
-//       <img src={img} alt={`Profile Picture ${name}`} />
-//       <h2>{name}</h2>
-//       <button></button>
-//     </li>
-//   );
-// };
-
 function App() {
   const [characters, setCharacters] = useState([]);
   const url = 'https://rickandmortyapi.com/api/character';
