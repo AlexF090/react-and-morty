@@ -7,9 +7,9 @@ const Navbar = () => {
         <hr />
         <NavWrapper>
           <li>Home</li>
-          <li>Placeholder1</li>
-          <li>Placeholder2</li>
-          <li>Placeholder3</li>
+          <li>Favorite</li>
+          <li>Random</li>
+          <li>Other</li>
         </NavWrapper>
       </nav>
     </FooterWrapper>
@@ -28,9 +28,12 @@ const NavWrapper = styled.ul`
   justify-content: space-evenly;
   gap: 0.25rem;
   width: 100vw;
+  padding: 0.5rem 0rem;
+
   background-color: #9ef01a;
   color: #004B23;
   text-shadow: 2px 2px 5px #00000069;
+  font-weight: 700;
   list-style-type: none;
   text-decoration: none;
 `;
