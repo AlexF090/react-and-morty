@@ -1,3 +1,5 @@
+import React from 'react';
+import { NavLink } from 'react-router-dom';
 import styled from 'styled-components';
 
 const Navbar = () => {
@@ -6,7 +8,9 @@ const Navbar = () => {
       <nav>
         <hr />
         <NavWrapper>
-          <li>Home</li>
+          <NavLinkStyled to="/">
+            <li>Home</li>
+          </NavLinkStyled>
           <li>Favorite</li>
           <li>Random</li>
           <li>Other</li>
@@ -16,9 +20,20 @@ const Navbar = () => {
   );
 };
 
+const NavLinkStyled = styled(NavLink)`
+text-decoration: none;
+color: #004b23;
+&.active{
+
+  text-decoration: none;
+  text-shadow: 2px 2px 2.5px #000000cb;
+}
+
+`;
+
 const FooterWrapper = styled.footer`
   position: sticky;
-  bottom: 0;
+  bottom: 0vh;
   margin-top: 0.5rem;
 `;
 
@@ -29,13 +44,15 @@ const NavWrapper = styled.ul`
   gap: 0.25rem;
   width: 100vw;
   padding: 0.5rem 0rem;
-
   background-color: #9ef01a;
-  color: #004B23;
+  color: #004b23;
   text-shadow: 2px 2px 5px #00000069;
   font-weight: 700;
+  font-size: 1.25rem;
   list-style-type: none;
   text-decoration: none;
 `;
+
+
 
 export default Navbar;

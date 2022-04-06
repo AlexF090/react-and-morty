@@ -1,26 +1,35 @@
+import React from 'react';
+import { Link } from 'react-router-dom';
 import styled from 'styled-components';
+import CardButton from './button';
 
-const Card = ({ img, name }) => {
+const Card = ({ id, img, name }) => {
   return (
-    <CardContainer>
+    <CardLi>
       <CardImg src={img} alt={`Profile Picture ${name}`} />
       <CardName>{name}</CardName>
-      <CardButton>show more</CardButton>
-    </CardContainer>
+      <LinkStyled to={`character/${id}`}>
+        <CardButton label="show more" />
+      </LinkStyled>
+    </CardLi>
   );
 };
 
-const CardContainer = styled.li`
+const LinkStyled = styled(Link)`
+text-decoration: none;
+`;
+
+const CardLi = styled.li`
   list-style: none;
   text-align: center;
   border: 2px solid #9ef01a;
   margin: 0.5rem;
-
+  margin-top: 5rem;
 `;
 
 const CardImg = styled.img`
-margin: 0 0.5rem;
-margin-top: 0.5rem
+  margin: 0 0.5rem;
+  margin-top: 0.5rem;
 `;
 
 const CardName = styled.h2`
@@ -28,13 +37,5 @@ const CardName = styled.h2`
   text-shadow: 2px 2px 7px #000000;
   margin: 0.5rem;
 `;
-
-const CardButton = styled.button`
-padding: 0.35rem;
-margin-bottom: 0.5rem;
-font-size: 1rem;
-font-weight: 700;
-border-radius: 8px;
-`
 
 export default Card;
