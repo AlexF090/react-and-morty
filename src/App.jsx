@@ -2,8 +2,10 @@ import React, { useState, useEffect } from 'react';
 import './App.css';
 import Header from './components/header';
 import Navbar from './components/navbar';
-import styled from 'styled-components';
 import Card from './components/card';
+import styled from 'styled-components';
+
+
 
 function App() {
   const [characters, setCharacters] = useState([]);
