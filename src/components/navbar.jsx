@@ -33,7 +33,6 @@ const NavWrapper = styled.ul`
   gap: 0.25rem;
   width: 100vw;
   padding: 0.5rem 0rem;
-
   background-color: #9ef01a;
   color: #004b23;
   text-shadow: 2px 2px 5px #00000069;
