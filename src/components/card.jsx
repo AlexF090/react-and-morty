@@ -8,12 +8,16 @@ const Card = ({ id, img, name }) => {
     <CardLi>
       <CardImg src={img} alt={`Profile Picture ${name}`} />
       <CardName>{name}</CardName>
-      <Link to={`character/${id}`}>
+      <LinkStyled to={`character/${id}`}>
         <CardButton label="show more" />
-      </Link>
+      </LinkStyled>
     </CardLi>
   );
 };
+
+const LinkStyled = styled(Link)`
+text-decoration: none;
+`;
 
 const CardLi = styled.li`
   list-style: none;

@@ -14,10 +14,8 @@ html, body {
 body {
     font-family: -apple-system, BlinkMacSystemFont, sans-serif;
     background: #008000;
-}
+}`;
 
 
-
-`;
 
 export default GlobalStyle;

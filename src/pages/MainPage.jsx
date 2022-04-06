@@ -4,7 +4,7 @@ import styled from 'styled-components';
 
 const MainPage = ({ characters }) => {
   return (
-    <CharactersList>
+    <CharactersList role="list">
       {characters.map(character => (
         <Card key={character.id} id={character.id} img={character.image} name={character.name} />
       ))}

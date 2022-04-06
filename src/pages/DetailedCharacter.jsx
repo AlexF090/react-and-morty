@@ -1,7 +1,5 @@
 import React from 'react';
 import { useParams } from 'react-router-dom';
-// import Header from './components/header';
-// import Navbar from './components/navbar';
 import styled from 'styled-components';
 import CardButton from '../components/button';
 
@@ -18,9 +16,9 @@ function DetailedCharacter({ characters }) {
           <CardName>{currentCharacter.name}</CardName>
           <CardButton label="save as favorite" />
           <CardUl>
-          <CardLiSpecs>species: {currentCharacter.species}</CardLiSpecs>
-          <CardLiSpecs>gender: {currentCharacter.gender}</CardLiSpecs>
-          <CardLiSpecs>status: {currentCharacter.status}</CardLiSpecs>
+            <CardLiSpecs>species: {currentCharacter.species}</CardLiSpecs>
+            <CardLiSpecs>gender: {currentCharacter.gender}</CardLiSpecs>
+            <CardLiSpecs>status: {currentCharacter.status}</CardLiSpecs>
           </CardUl>
         </CardLi>
       ) : (
@@ -42,7 +40,6 @@ const CardLi = styled.li`
   border: 2px solid #9ef01a;
   margin: 0.5rem;
 `;
-
 
 const CardLiSpecs = styled.li`
   list-style: none;
