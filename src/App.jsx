@@ -39,7 +39,7 @@ function App() {
 
 const Grid = styled.div`
 display: grid;
-grid-template-rows: 150px 1fr 3.25rem;
+grid-template-rows: 2rem 1fr 3rem;
 height: 100vh;
 main {
   overflow-y: scroll;

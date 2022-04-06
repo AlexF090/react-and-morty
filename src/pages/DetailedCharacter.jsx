@@ -9,22 +9,35 @@ function DetailedCharacter({ characters }) {
   const currentCharacter = characters.find(character => character.id === Number(id));
 
   return (
-    <CardUl>
+    <>
       {currentCharacter ? (
-        <CardLi>
-          <CardImg src={currentCharacter.image} alt={`Profile Picture ${currentCharacter.name}`} />
-          <CardName>{currentCharacter.name}</CardName>
-          <CardButton label="save as favorite" />
-          <CardUl>
+        <CardUl>
+          <CardLi>
+            <CardImg
+              src={currentCharacter.image}
+              alt={`Profile Picture ${currentCharacter.name}`}
+            />
+          </CardLi>
+          <CardLi>
+            <CardName>{currentCharacter.name}</CardName>
+          </CardLi>
+          <CardLi>
+            <CardButton label="save as favorite" />
+          </CardLi>
+          <CardLi>
             <CardLiSpecs>species: {currentCharacter.species}</CardLiSpecs>
+          </CardLi>
+          <CardLi>
             <CardLiSpecs>gender: {currentCharacter.gender}</CardLiSpecs>
+          </CardLi>
+          <CardLi>
             <CardLiSpecs>status: {currentCharacter.status}</CardLiSpecs>
-          </CardUl>
-        </CardLi>
+          </CardLi>
+        </CardUl>
       ) : (
         ''
       )}
-    </CardUl>
+    </>
   );
 }
 
@@ -32,13 +45,17 @@ const CardUl = styled.ul`
   display: flex;
   flex-direction: column;
   align-items: center;
+  border: 2px solid #9ef01a;
+  margin: 0 auto;
+  margin-top: 5rem;
+  width: 320px;
 `;
 
 const CardLi = styled.li`
   list-style: none;
   text-align: center;
-  border: 2px solid #9ef01a;
-  margin: 0.5rem;
+  
+  
 `;
 
 const CardLiSpecs = styled.li`

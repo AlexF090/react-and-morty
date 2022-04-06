@@ -16,7 +16,6 @@ const Header = () => {
 const HeaderWrapper = styled.header`
 position: sticky;
 top: 0;
-
 margin-bottom: 1rem;
 `;
 
