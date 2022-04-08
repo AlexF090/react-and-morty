@@ -22,9 +22,6 @@ function DetailedCharacter({ characters }) {
             <CardName>{currentCharacter.name}</CardName>
           </CardLi>
           <CardLi>
-            <CardButton label="save as favorite" />
-          </CardLi>
-          <CardLi>
             <CardLiSpecs>species: {currentCharacter.species}</CardLiSpecs>
           </CardLi>
           <CardLi>
@@ -32,6 +29,9 @@ function DetailedCharacter({ characters }) {
           </CardLi>
           <CardLi>
             <CardLiSpecs>status: {currentCharacter.status}</CardLiSpecs>
+          </CardLi>
+          <CardLi>
+            <CardButton label="save as favorite" />
           </CardLi>
         </CardUl>
       ) : (
@@ -54,8 +54,6 @@ const CardUl = styled.ul`
 const CardLi = styled.li`
   list-style: none;
   text-align: center;
-  
-  
 `;
 
 const CardLiSpecs = styled.li`
