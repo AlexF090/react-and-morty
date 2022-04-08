@@ -7,6 +7,7 @@ function DetailedCharacter({ characters, favoritesIDs, setFavoritesIDs }) {
   const { id } = useParams();
   const currentCharacter = characters.find(character => character.id === Number(id));
 
+  //Function to add or remove favorites to/from useState array
   const saveFavorites = () => {
     if (favoritesIDs.includes(id)) {
       const updatedFavoriteIDs = favoritesIDs.filter(favoriteID => favoriteID !== id);
@@ -44,6 +45,7 @@ function DetailedCharacter({ characters, favoritesIDs, setFavoritesIDs }) {
               myFunction={() => {
                 saveFavorites();
               }}
+              isFavorite={favoritesIDs.includes(id)}
               label="save as favorite"
               currentCharacter={currentCharacter}
             />

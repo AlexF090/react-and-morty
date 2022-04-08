@@ -3,6 +3,9 @@ import styled from 'styled-components';
 
 const CardButton = ({ myFunction, label }) => {
   return <CardButtonStyle onClick={myFunction}>{label}</CardButtonStyle>;
+
+
+  
 };
 
 const CardButtonStyle = styled.button`
@@ -11,10 +14,12 @@ const CardButtonStyle = styled.button`
   font-size: 1rem;
   font-weight: 700;
   border-radius: 8px;
-  background-color: ${(props) => (props.isFavorite ? 'red' : '')}; //#9ef01a;
+  background-color: ${(props) => (props.isFavorite ? 'blue' : 'red')}; //#9ef01a;
   border: 0;
   color: #004b23;
   text-shadow: 2px 2px 3px #00000069;
 `;
+
+
 
 export default CardButton;

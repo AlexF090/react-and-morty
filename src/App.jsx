@@ -9,28 +9,26 @@ import styled from 'styled-components';
 
 function App() {
   const [characters, setCharacters] = useState([]);
-  const [favoritesIDs, setFavoritesIDs] = useState(['2', '5', '7']);
+  //favoritesIDs default: VERSTEHE ICH NICHT or empty array
+  const [favoritesIDs, setFavoritesIDs] = useState(
+    JSON.parse(localStorage.getItem('favoritesIDs')) || []
+  );
   const url = 'https://rickandmortyapi.com/api/character';
+
+  // Fetch Data
   const fetchCharacters = () => {
     fetch(url)
       .then(response => response.json())
       .then(data => setCharacters(data.results));
   };
-
   useEffect(() => {
     fetchCharacters(url);
   }, []);
 
-  
-  
-
-  // function handleOnBookmark (currentCharacter) {
-  //   const newFavorites = [{...favorites}, {currentCharacter.id}]
-  // };
-
-  // function SaveFavorites ({characters}) {
-  // const newCharacter
-  // };
+  //Save Favorites in LocalStorage
+  useEffect(() => {
+    localStorage.setItem('favoritesIDs', JSON.stringify(favoritesIDs));
+  }, [favoritesIDs]);
 
   return (
     <Grid>
