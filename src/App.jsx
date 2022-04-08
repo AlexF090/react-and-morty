@@ -9,6 +9,7 @@ import styled from 'styled-components';
 
 function App() {
   const [characters, setCharacters] = useState([]);
+  const [favoritesIDs, setFavoritesIDs] = useState(['2', '5', '7']);
   const url = 'https://rickandmortyapi.com/api/character';
   const fetchCharacters = () => {
     fetch(url)
@@ -20,17 +21,36 @@ function App() {
     fetchCharacters(url);
   }, []);
 
+  
+  
 
+  // function handleOnBookmark (currentCharacter) {
+  //   const newFavorites = [{...favorites}, {currentCharacter.id}]
+  // };
 
+  // function SaveFavorites ({characters}) {
+  // const newCharacter
+  // };
 
   return (
     <Grid>
       <Header />
       <main>
-      <Routes>
-      <Route path="/" element={<MainPage characters={characters} />} />
-        <Route path="character/:id" element={<DetailedCharacter characters={characters} />} />
-      </Routes>
+        <Routes>
+          <Route path="/" element={<MainPage characters={characters} />} />
+          <Route
+            path="character/:id"
+            element={
+              <DetailedCharacter
+                characters={characters}
+                favoritesIDs={favoritesIDs}
+                setFavoritesIDs={setFavoritesIDs}
+                // addFavorite={addFavorite}
+                // removeFavorite={removeFavorite}
+              />
+            }
+          />
+        </Routes>
       </main>
       <Navbar />
     </Grid>
@@ -38,12 +58,12 @@ function App() {
 }
 
 const Grid = styled.div`
-display: grid;
-grid-template-rows: 2rem 1fr 3rem;
-height: 100vh;
-main {
-  overflow-y: scroll;
-}
+  display: grid;
+  grid-template-rows: 2rem 1fr 3rem;
+  height: 100vh;
+  main {
+    overflow-y: scroll;
+  }
 `;
 
 export default App;

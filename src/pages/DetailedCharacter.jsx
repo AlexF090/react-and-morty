@@ -3,10 +3,19 @@ import { useParams } from 'react-router-dom';
 import styled from 'styled-components';
 import CardButton from '../components/button';
 
-function DetailedCharacter({ characters }) {
+function DetailedCharacter({ characters, favoritesIDs, setFavoritesIDs }) {
   const { id } = useParams();
-  console.log(characters);
   const currentCharacter = characters.find(character => character.id === Number(id));
+
+  const saveFavorites = () => {
+    if (favoritesIDs.includes(id)) {
+      const updatedFavoriteIDs = favoritesIDs.filter(favoriteID => favoriteID !== id);
+      setFavoritesIDs(updatedFavoriteIDs);
+    } else {
+      setFavoritesIDs([...favoritesIDs, id]);
+    }
+  };
+  console.log(favoritesIDs);
 
   return (
     <>
@@ -31,7 +40,13 @@ function DetailedCharacter({ characters }) {
             <CardLiSpecs>status: {currentCharacter.status}</CardLiSpecs>
           </CardLi>
           <CardLi>
-            <CardButton label="save as favorite" />
+            <CardButton
+              myFunction={() => {
+                saveFavorites();
+              }}
+              label="save as favorite"
+              currentCharacter={currentCharacter}
+            />
           </CardLi>
         </CardUl>
       ) : (
