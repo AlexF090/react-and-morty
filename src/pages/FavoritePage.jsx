@@ -1,174 +1,55 @@
-// import React, { useEffect, useState } from 'react'
-import { useParams } from 'react-router-dom';
+import React from 'react';
+import Card from '../../src/components/card';
 import styled from 'styled-components';
-import CardButton from '../components/button';
 
-function DetailedCharacter({ characters, favoritesIDs, setFavoritesIDs }) {
-  const { id } = useParams();
-  const currentCharacter = characters.find(character => character.id === Number(id));
-  // const [favoButtonText, setFavoButtonText] = useState(favoButtonText);
-
-  //Function to add or remove favorites to/from useState array
-  const saveFavorites = () => {
-    if (favoritesIDs.includes(id)) {
-      const updatedFavoriteIDs = favoritesIDs.filter(favoriteID => favoriteID !== id);
-      setFavoritesIDs(updatedFavoriteIDs);
-      // setFavoButtonText('Add To Favorites');
-    } else {
-      setFavoritesIDs([...favoritesIDs, id]);
-      // setFavoButtonText('Is in Favorites');
-    }
-  };
-  console.log(favoritesIDs);
-
-  // const handleEvent = () => {
-  //   setFavoButtonText("Is in Favorites");
-  //       setFavoButtonText("Add To Favorites");
-
-  // };
+const FavoritesPages = ({ characters, favoritesIDs }) => {
+  // console.clear();
+  console.log(typeof characters.id);
 
   return (
-    <>
-      {currentCharacter ? (
-        <CardUl>
-          <CardLi>
-            <CardImg
-              src={currentCharacter.image}
-              alt={`Profile Picture ${currentCharacter.name}`}
-            />
-          </CardLi>
-          <CardLi>
-            <CardName>{currentCharacter.name}</CardName>
-          </CardLi>
-          <CardLi>
-            <CardLiSpecs>species: {currentCharacter.species}</CardLiSpecs>
-          </CardLi>
-          <CardLi>
-            <CardLiSpecs>gender: {currentCharacter.gender}</CardLiSpecs>
-          </CardLi>
-          <CardLi>
-            <CardLiSpecs>status: {currentCharacter.status}</CardLiSpecs>
-          </CardLi>
-          <CardLi>
-            <CardButton
-              myFunction={() => {
-                saveFavorites();
-              }}
-              isFavorite={favoritesIDs.includes(id)}
-              // label={favoButtonText}
-              label='Favorite'
-              currentCharacter={currentCharacter}
-            />
-          </CardLi>
-        </CardUl>
-      ) : (
-        ''
-      )}
-    </>
-  );
-}
+    <CharactersList role="list">
+      {characters.filter(character => favoritesIDs.includes(character.id)).map(character => (
+        <Card key={character.id} id={character.id} img={character.image} name={character.name} />
+      ))}
 
-const CardUl = styled.ul`
+{/* {favoritesIDs.length>0 ? (characters.map(character =>
+          favoritesIDs.includes(character.id) ? (
+            <Card
+              key={character.id}
+              id={character.id}
+              img={character.image}
+              name={character.name}
+              // gender={character.gender}
+              // species={character.species}
+              // status={character.status}
+              // location={character.location.name}
+              // origin={character.origin.name}
+              // detailsMode={true}
+              // bookmarking={true}
+              // handleBookmarking={() => handleBookmarking(character.id)}
+              // isbookmarked={favcharacterIDs.includes(character.id)}
+            />
+          ) : (
+            ''
+          )
+        )) : ( <p>You don't have any favorites set, yet.</p> ) 
+        } */}
+
+
+
+
+
+    </CharactersList>
+  );
+};
+  
+
+
+const CharactersList = styled.ul`
   display: flex;
   flex-direction: column;
   align-items: center;
-  border: 2px solid #9ef01a;
-  margin: 0 auto;
-  margin-top: 5rem;
-  width: 320px;
+  gap: 0.5em;
 `;
 
-const CardLi = styled.li`
-  list-style: none;
-  text-align: center;
-`;
-
-const CardLiSpecs = styled.li`
-  list-style: none;
-  text-align: center;
-  margin: 0.5rem;
-  font-weight: 500;
-  text-shadow: 1px 1px 5px #00000062;
-`;
-
-const CardImg = styled.img`
-  margin: 0 0.5rem;
-  margin-top: 0.5rem;
-`;
-
-const CardName = styled.h2`
-  color: #9ef01a;
-  text-shadow: 2px 2px 7px #000000;
-  margin: 0.5rem;
-`;
-
-export default DetailedCharacter;
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-//  function Favorites({ favoriteIDs, removeFavorite }) {
-//   const [characters, setCharacters] = useState([])
-
-//   useEffect(() => {
-//     const fetches = favoriteIDs.map((ids) =>
-//       fetch('https://rickandmortyapi.com/api/character/' + ids).then(
-//         (response) => response.json()
-//       )
-//     )
-//     Promise.all(fetches).then((data) => setCharacters(data))
-//   }, [favoriteIDs])
-
-//   return (
-//     <List>
-//       {characters?.map((character) => (
-//         <li key={character.id}>
-//           <CardButton
-//             onClick={() => removeFavorite(character.id.toString())}
-//             isFavorite={true}
-//           >
-//             Remove as favorite
-//           </CardButton>
-//           <img src={character.image} alt="character-pic" />
-//           <h2>{character.name}</h2>
-//         </li>
-//       ))}
-//     </List>
-//   )
-// }
-
-// export default Favorites;
+export default FavoritesPages;

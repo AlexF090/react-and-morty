@@ -1,7 +1,6 @@
 // import React, { useState } from 'react';
 import { useParams } from 'react-router-dom';
-import styled from 'styled-components';
-import CardButton from '../components/button';
+import CardDetailedCharacter from '../components/cardDetailedCharacter';
 
 function DetailedCharacter({ characters, favoritesIDs, setFavoritesIDs }) {
   const { id } = useParams();
@@ -10,12 +9,12 @@ function DetailedCharacter({ characters, favoritesIDs, setFavoritesIDs }) {
 
   //Function to add or remove favorites to/from useState array
   const saveFavorites = () => {
-    if (favoritesIDs.includes(id)) {
-      const updatedFavoriteIDs = favoritesIDs.filter(favoriteID => favoriteID !== id);
+    if (favoritesIDs.includes(currentCharacter.id)) {
+      const updatedFavoriteIDs = favoritesIDs.filter(favoriteID => favoriteID !== currentCharacter.id);
       setFavoritesIDs(updatedFavoriteIDs);
       // setFavoButtonText('Add To Favorites');
     } else {
-      setFavoritesIDs([...favoritesIDs, id]);
+      setFavoritesIDs([...favoritesIDs, currentCharacter.id]);
       // setFavoButtonText('Is in Favorites');
     }
   };
@@ -30,37 +29,13 @@ function DetailedCharacter({ characters, favoritesIDs, setFavoritesIDs }) {
   return (
     <>
       {currentCharacter ? (
-        <CardUl>
-          <CardLi>
-            <CardImg
-              src={currentCharacter.image}
-              alt={`Profile Picture ${currentCharacter.name}`}
-            />
-          </CardLi>
-          <CardLi>
-            <CardName>{currentCharacter.name}</CardName>
-          </CardLi>
-          <CardLi>
-            <CardLiSpecs>species: {currentCharacter.species}</CardLiSpecs>
-          </CardLi>
-          <CardLi>
-            <CardLiSpecs>gender: {currentCharacter.gender}</CardLiSpecs>
-          </CardLi>
-          <CardLi>
-            <CardLiSpecs>status: {currentCharacter.status}</CardLiSpecs>
-          </CardLi>
-          <CardLi>
-            <CardButton
-              myFunction={() => {
-                saveFavorites();
-              }}
-              isFavorite={favoritesIDs.includes(id)}
-              // label={favoButtonText}
-              label='Favorite'
-              currentCharacter={currentCharacter}
-            />
-          </CardLi>
-        </CardUl>
+        <CardDetailedCharacter
+          id={currentCharacter.id}
+          characters={characters}
+          currentCharacter={currentCharacter}
+          favoritesIDs={favoritesIDs}
+          saveFavorites={saveFavorites}
+        />
       ) : (
         ''
       )}
@@ -68,38 +43,38 @@ function DetailedCharacter({ characters, favoritesIDs, setFavoritesIDs }) {
   );
 }
 
-const CardUl = styled.ul`
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  border: 2px solid #9ef01a;
-  margin: 0 auto;
-  margin-top: 5rem;
-  width: 320px;
-`;
+// const CardUl = styled.ul`
+//   display: flex;
+//   flex-direction: column;
+//   align-items: center;
+//   border: 2px solid #9ef01a;
+//   margin: 0 auto;
+//   margin-top: 5rem;
+//   width: 320px;
+// `;
 
-const CardLi = styled.li`
-  list-style: none;
-  text-align: center;
-`;
+// const CardLi = styled.li`
+//   list-style: none;
+//   text-align: center;
+// `;
 
-const CardLiSpecs = styled.li`
-  list-style: none;
-  text-align: center;
-  margin: 0.5rem;
-  font-weight: 500;
-  text-shadow: 1px 1px 5px #00000062;
-`;
+// const CardLiSpecs = styled.li`
+//   list-style: none;
+//   text-align: center;
+//   margin: 0.5rem;
+//   font-weight: 500;
+//   text-shadow: 1px 1px 5px #00000062;
+// `;
 
-const CardImg = styled.img`
-  margin: 0 0.5rem;
-  margin-top: 0.5rem;
-`;
+// const CardImg = styled.img`
+//   margin: 0 0.5rem;
+//   margin-top: 0.5rem;
+// `;
 
-const CardName = styled.h2`
-  color: #9ef01a;
-  text-shadow: 2px 2px 7px #000000;
-  margin: 0.5rem;
-`;
+// const CardName = styled.h2`
+//   color: #9ef01a;
+//   text-shadow: 2px 2px 7px #000000;
+//   margin: 0.5rem;
+// `;
 
 export default DetailedCharacter;

@@ -5,12 +5,12 @@ import Header from './components/header';
 import Navbar from './components/navbar';
 import MainPage from './pages/MainPage';
 import DetailedCharacter from './pages/DetailedCharacter';
-import Favorites from './pages/FavoritePage';
+import FavoritesPages from './pages/FavoritePage';
 import styled from 'styled-components';
 
 function App() {
   const [characters, setCharacters] = useState([]);
-  //favoritesIDs default: VERSTEHE ICH NICHT or empty array
+  //favoritesIDs default: Wandelt string in JS-Objekt/Array (Wo: aus dem localStorage.nehmen(Dateiname:favoritesIDS)) or empty array
   const [favoritesIDs, setFavoritesIDs] = useState(
     JSON.parse(localStorage.getItem('favoritesIDs')) || []
   );
@@ -30,6 +30,8 @@ function App() {
   useEffect(() => {
     localStorage.setItem('favoritesIDs', JSON.stringify(favoritesIDs));
   }, [favoritesIDs]);
+
+
 
   return (
     <Grid>
@@ -52,11 +54,10 @@ function App() {
           <Route
             path="/favorites"
             element={
-              <Favorites
+              <FavoritesPages
                 characters={characters}
                 favoritesIDs={favoritesIDs}
                 setFavoritesIDs={setFavoritesIDs}
-                
               />
             }
           />
