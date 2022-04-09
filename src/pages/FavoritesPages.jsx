@@ -2,7 +2,7 @@ import React from 'react';
 import Card from '../components/card';
 import styled from 'styled-components';
 
-const FavoritesPages = ({ characters, favoritesIDs }) => {
+const FavoritesPage = ({ characters, favoritesIDs }) => {
   // console.clear();
   // console.log(typeof characters.id);
 
@@ -24,4 +24,4 @@ const CharactersList = styled.ul`
   gap: 0.5em;
 `;
 
-export default FavoritesPages;
+export default FavoritesPage;

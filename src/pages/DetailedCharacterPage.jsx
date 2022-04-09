@@ -2,7 +2,7 @@
 import { useParams } from 'react-router-dom';
 import CardDetailedCharacter from '../components/cardDetailedCharacter';
 
-function DetailedCharacter({ characters, favoritesIDs, setFavoritesIDs }) {
+function DetailedCharacterPage({ characters, favoritesIDs, setFavoritesIDs }) {
   const { id } = useParams();
   const currentCharacter = characters.find(character => character.id === Number(id));
   // const [favoButtonText, setFavoButtonText] = useState(favoButtonText);
@@ -18,7 +18,7 @@ function DetailedCharacter({ characters, favoritesIDs, setFavoritesIDs }) {
       // setFavoButtonText('Is in Favorites');
     }
   };
-  console.log(favoritesIDs);
+  
 
   // const handleEvent = () => {
   //   setFavoButtonText("Is in Favorites");
@@ -77,4 +77,4 @@ function DetailedCharacter({ characters, favoritesIDs, setFavoritesIDs }) {
 //   margin: 0.5rem;
 // `;
 
-export default DetailedCharacter;
+export default DetailedCharacterPage;

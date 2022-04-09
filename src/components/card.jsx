@@ -24,8 +24,7 @@ const CardLi = styled.li`
   list-style: none;
   text-align: center;
   border: 2px solid #9ef01a;
-  margin: 0.5rem;
-  margin-top: 5rem;
+  margin: 2.5rem;
 `;
 
 const CardImg = styled.img`
