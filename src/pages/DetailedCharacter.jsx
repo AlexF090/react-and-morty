@@ -1,4 +1,4 @@
-import React from 'react';
+// import React, { useState } from 'react';
 import { useParams } from 'react-router-dom';
 import styled from 'styled-components';
 import CardButton from '../components/button';
@@ -6,17 +6,26 @@ import CardButton from '../components/button';
 function DetailedCharacter({ characters, favoritesIDs, setFavoritesIDs }) {
   const { id } = useParams();
   const currentCharacter = characters.find(character => character.id === Number(id));
+  // const [favoButtonText, setFavoButtonText] = useState(favoButtonText);
 
   //Function to add or remove favorites to/from useState array
   const saveFavorites = () => {
     if (favoritesIDs.includes(id)) {
       const updatedFavoriteIDs = favoritesIDs.filter(favoriteID => favoriteID !== id);
       setFavoritesIDs(updatedFavoriteIDs);
+      // setFavoButtonText('Add To Favorites');
     } else {
       setFavoritesIDs([...favoritesIDs, id]);
+      // setFavoButtonText('Is in Favorites');
     }
   };
   console.log(favoritesIDs);
+
+  // const handleEvent = () => {
+  //   setFavoButtonText("Is in Favorites");
+  //       setFavoButtonText("Add To Favorites");
+
+  // };
 
   return (
     <>
@@ -46,7 +55,8 @@ function DetailedCharacter({ characters, favoritesIDs, setFavoritesIDs }) {
                 saveFavorites();
               }}
               isFavorite={favoritesIDs.includes(id)}
-              label="save as favorite"
+              // label={favoButtonText}
+              label='Favorite'
               currentCharacter={currentCharacter}
             />
           </CardLi>
