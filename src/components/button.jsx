@@ -1,7 +1,7 @@
 import React from 'react';
 import styled from 'styled-components';
 
-const CardButton = ({ myFunction, label, isFavorite }) => {
+const Button = ({ myFunction, label, isFavorite }) => {
   return <CardButtonStyle onClick={myFunction} isFavorite={isFavorite}>{label}</CardButtonStyle>;
 
 
@@ -22,4 +22,4 @@ const CardButtonStyle = styled.button`
 
 
 
-export default CardButton;
+export default Button;

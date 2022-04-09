@@ -1,5 +1,5 @@
 import styled from 'styled-components';
-import CardButton from '../components/button';
+import Button from '../components/button';
 // 
 const CardDetailedCharacter = ({ id, currentCharacter, favoritesIDs, saveFavorites }) => {
   return (
@@ -20,7 +20,7 @@ const CardDetailedCharacter = ({ id, currentCharacter, favoritesIDs, saveFavorit
         <CardLiSpecs>status: {currentCharacter.status}</CardLiSpecs>
       </CardLi>
       <CardLi>
-        <CardButton
+        <Button
           myFunction={() => {
             saveFavorites();
           }}

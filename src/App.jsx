@@ -4,8 +4,8 @@ import './App.css';
 import Header from './components/header';
 import Navbar from './components/navbar';
 import MainPage from './pages/MainPage';
-import DetailedCharacter from './pages/DetailedCharacter';
-import FavoritesPages from './pages/FavoritePage';
+import DetailedCharacter from './pages/DetailedCharacterPage';
+import FavoritesPages from './pages/FavoritesPages';
 import styled from 'styled-components';
 
 function App() {
@@ -31,14 +31,22 @@ function App() {
     localStorage.setItem('favoritesIDs', JSON.stringify(favoritesIDs));
   }, [favoritesIDs]);
 
-
-
   return (
     <Grid>
       <Header />
       <main>
         <Routes>
           <Route path="/" element={<MainPage characters={characters} />} />
+          <Route
+            path="favorites"
+            element={
+              <FavoritesPages
+                characters={characters}
+                favoritesIDs={favoritesIDs}
+                setFavoritesIDs={setFavoritesIDs}
+              />
+            }
+          />
           <Route
             path="character/:id"
             element={
@@ -48,16 +56,6 @@ function App() {
                 setFavoritesIDs={setFavoritesIDs}
                 // addFavorite={addFavorite}
                 // removeFavorite={removeFavorite}
-              />
-            }
-          />
-          <Route
-            path="/favorites"
-            element={
-              <FavoritesPages
-                characters={characters}
-                favoritesIDs={favoritesIDs}
-                setFavoritesIDs={setFavoritesIDs}
               />
             }
           />
