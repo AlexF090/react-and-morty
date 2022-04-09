@@ -11,7 +11,9 @@ const Navbar = () => {
           <NavLinkStyled to="/">
             <li>Home</li>
           </NavLinkStyled>
+          <NavLinkStyled to="/favorites">
           <li>Favorite</li>
+          </NavLinkStyled>
           <li>Random</li>
           <li>Other</li>
         </NavWrapper>

@@ -3,8 +3,9 @@ import { Routes, Route } from 'react-router-dom';
 import './App.css';
 import Header from './components/header';
 import Navbar from './components/navbar';
-import DetailedCharacter from './pages/DetailedCharacter';
 import MainPage from './pages/MainPage';
+import DetailedCharacter from './pages/DetailedCharacter';
+import Favorites from './pages/FavoritePage';
 import styled from 'styled-components';
 
 function App() {
@@ -45,6 +46,17 @@ function App() {
                 setFavoritesIDs={setFavoritesIDs}
                 // addFavorite={addFavorite}
                 // removeFavorite={removeFavorite}
+              />
+            }
+          />
+          <Route
+            path="/favorites"
+            element={
+              <Favorites
+                characters={characters}
+                favoritesIDs={favoritesIDs}
+                setFavoritesIDs={setFavoritesIDs}
+                
               />
             }
           />
