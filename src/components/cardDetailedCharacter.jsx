@@ -1,5 +1,5 @@
 import styled from 'styled-components';
-import Button from '../components/button';
+import Button from './Button';
 // 
 const CardDetailedCharacter = ({ id, currentCharacter, favoritesIDs, saveFavorites }) => {
   return (
@@ -24,7 +24,8 @@ const CardDetailedCharacter = ({ id, currentCharacter, favoritesIDs, saveFavorit
           myFunction={() => {
             saveFavorites();
           }}
-          isFavorite={favoritesIDs.includes(id)}
+          favoritesIDs={favoritesIDs}
+          // isFavorite={favoritesIDs.includes(id)}
           // label={favoButtonText}
           label="Favorite"
           currentCharacter={currentCharacter}

@@ -1,5 +1,5 @@
 import React from 'react';
-import Card from '../../src/components/card';
+import Card from '../components/Card';
 import styled from 'styled-components';
 
 const MainPage = ({ characters }) => {

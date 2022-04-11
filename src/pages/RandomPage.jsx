@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
-import Card from '../../src/components/card';
+import Card from '../components/Card';
 import styled from 'styled-components';
-import Button from '../../src/components/button';
+import Button from '../components/Button';
 
 const RandomPage = () => {
   const [randomCharacter, setRandomCharacter] = useState(null);

@@ -4,8 +4,8 @@ import { Routes, Route } from 'react-router-dom';
 import '../src/style/globalCSS.css';
 // import styled from 'styled-components';
 //Components
-import Header from './components/header';
-import Navbar from './components/navbar';
+import Header from './components/Header';
+import Navbar from './components/Navbar';
 //Pages
 import MainPage from './pages/MainPage';
 import DetailedCharacterPage from './pages/DetailedCharacterPage';
