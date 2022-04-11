@@ -8,7 +8,7 @@ const Button = ({ myFunction, label, favoritesIDs, currentCharacter }) => {
   isFavorite={favoritesIDs && favoritesIDs.includes(currentCharacter.id) ? true : false}
    
   >
-    {favoritesIDs && favoritesIDs.includes(currentCharacter.id) ? `${currentCharacter.name} Is Favorite` : label}
+    {favoritesIDs && favoritesIDs.includes(currentCharacter.id) ? `${currentCharacter.name} is favorite` : label}
     </CardButtonStyle>;
 
 

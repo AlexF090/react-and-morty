@@ -15,9 +15,9 @@ import RandomPage from './pages/RandomPage';
 function App() {
   const [characters, setCharacters] = useState([]);
   //favoritesIDs default: Wandelt string in JS-Objekt/Array (Wo: aus dem localStorage.nehmen(Dateiname:favoritesIDS)) or empty array
-  const [favoritesIDs, setFavoritesIDs] = useState(
-    JSON.parse(localStorage.getItem('favoritesIDs')) || []
-  );
+  const [favoritesIDs, setFavoritesIDs] = useState(() => {
+    return JSON.parse(localStorage.getItem('favoritesIDs')) || []
+  });
   const url = 'https://rickandmortyapi.com/api/character';
 
   // Fetch Data
