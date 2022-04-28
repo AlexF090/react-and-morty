@@ -1,15 +1,21 @@
 import React, { useState, useEffect } from 'react';
 import { Routes, Route } from 'react-router-dom';
-import './App.css';
+// import '../src/style/App.css';
+import '../src/style/globalCSS.css'
+// import styled from 'styled-components';
+//Components
 import Header from './components/header';
 import Navbar from './components/navbar';
-import DetailedCharacter from './pages/DetailedCharacter';
+//Pages
 import MainPage from './pages/MainPage';
-import styled from 'styled-components';
+import DetailedCharacterPage from './pages/DetailedCharacterPage';
+import FavoritesPage from './pages/FavoritesPages';
+import RandomPage from './pages/RandomPage'
+
 
 function App() {
   const [characters, setCharacters] = useState([]);
-  //favoritesIDs default: VERSTEHE ICH NICHT or empty array
+  //favoritesIDs default: Wandelt string in JS-Objekt/Array (Wo: aus dem localStorage.nehmen(Dateiname:favoritesIDS)) or empty array
   const [favoritesIDs, setFavoritesIDs] = useState(
     JSON.parse(localStorage.getItem('favoritesIDs')) || []
   );
@@ -31,15 +37,25 @@ function App() {
   }, [favoritesIDs]);
 
   return (
-    <Grid>
+    <>
       <Header />
       <main>
         <Routes>
           <Route path="/" element={<MainPage characters={characters} />} />
           <Route
+            path="favorites"
+            element={
+              <FavoritesPage
+                characters={characters}
+                favoritesIDs={favoritesIDs}
+                setFavoritesIDs={setFavoritesIDs}
+              />
+            }
+          />
+          <Route
             path="character/:id"
             element={
-              <DetailedCharacter
+              <DetailedCharacterPage
                 characters={characters}
                 favoritesIDs={favoritesIDs}
                 setFavoritesIDs={setFavoritesIDs}
@@ -48,20 +64,37 @@ function App() {
               />
             }
           />
+          <Route
+            path="random_character"
+            element={
+              <RandomPage
+              // characters={characters}
+              // favoritesIDs={favoritesIDs}
+              // setFavoritesIDs={setFavoritesIDs}
+              // addFavorite={addFavorite}
+              // removeFavorite={removeFavorite}
+              />
+            }
+          />
         </Routes>
       </main>
       <Navbar />
-    </Grid>
+    </>
   );
 }
 
-const Grid = styled.div`
-  display: grid;
-  grid-template-rows: 2rem 1fr 3rem;
-  height: 100vh;
-  main {
-    overflow-y: scroll;
-  }
-`;
+// const Grid = styled.div`
+//   display: grid;
+//   grid-template-rows: 2rem 1fr 3rem;
+//   height: 100vh;
+//   main {
+//     overflow-y: scroll;
+//   }
+// `;
+
+
+
+
+
 
 export default App;

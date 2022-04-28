@@ -11,8 +11,12 @@ const Navbar = () => {
           <NavLinkStyled to="/">
             <li>Home</li>
           </NavLinkStyled>
+          <NavLinkStyled to="/favorites">
           <li>Favorite</li>
+          </NavLinkStyled>
+          <NavLinkStyled to="/random_character">
           <li>Random</li>
+          </NavLinkStyled>
           <li>Other</li>
         </NavWrapper>
       </nav>
@@ -32,9 +36,10 @@ color: #004b23;
 `;
 
 const FooterWrapper = styled.footer`
-  position: sticky;
-  bottom: 0vh;
+  position: fixed;
+  bottom: 0px;
   margin-top: 0.5rem;
+  
 `;
 
 const NavWrapper = styled.ul`
