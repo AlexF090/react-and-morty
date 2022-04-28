@@ -1,12 +1,31 @@
-import React from 'react';
+// import React, { useState } from 'react';
 import { useParams } from 'react-router-dom';
 import styled from 'styled-components';
 import CardButton from '../components/button';
 
-function DetailedCharacter({ characters }) {
+function DetailedCharacter({ characters, favoritesIDs, setFavoritesIDs }) {
   const { id } = useParams();
-  console.log(characters);
   const currentCharacter = characters.find(character => character.id === Number(id));
+  // const [favoButtonText, setFavoButtonText] = useState(favoButtonText);
+
+  //Function to add or remove favorites to/from useState array
+  const saveFavorites = () => {
+    if (favoritesIDs.includes(id)) {
+      const updatedFavoriteIDs = favoritesIDs.filter(favoriteID => favoriteID !== id);
+      setFavoritesIDs(updatedFavoriteIDs);
+      // setFavoButtonText('Add To Favorites');
+    } else {
+      setFavoritesIDs([...favoritesIDs, id]);
+      // setFavoButtonText('Is in Favorites');
+    }
+  };
+  console.log(favoritesIDs);
+
+  // const handleEvent = () => {
+  //   setFavoButtonText("Is in Favorites");
+  //       setFavoButtonText("Add To Favorites");
+
+  // };
 
   return (
     <>
@@ -22,9 +41,6 @@ function DetailedCharacter({ characters }) {
             <CardName>{currentCharacter.name}</CardName>
           </CardLi>
           <CardLi>
-            <CardButton label="save as favorite" />
-          </CardLi>
-          <CardLi>
             <CardLiSpecs>species: {currentCharacter.species}</CardLiSpecs>
           </CardLi>
           <CardLi>
@@ -32,6 +48,17 @@ function DetailedCharacter({ characters }) {
           </CardLi>
           <CardLi>
             <CardLiSpecs>status: {currentCharacter.status}</CardLiSpecs>
+          </CardLi>
+          <CardLi>
+            <CardButton
+              myFunction={() => {
+                saveFavorites();
+              }}
+              isFavorite={favoritesIDs.includes(id)}
+              // label={favoButtonText}
+              label='Favorite'
+              currentCharacter={currentCharacter}
+            />
           </CardLi>
         </CardUl>
       ) : (
@@ -54,8 +81,6 @@ const CardUl = styled.ul`
 const CardLi = styled.li`
   list-style: none;
   text-align: center;
-  
-  
 `;
 
 const CardLiSpecs = styled.li`

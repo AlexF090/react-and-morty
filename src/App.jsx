@@ -9,28 +9,46 @@ import styled from 'styled-components';
 
 function App() {
   const [characters, setCharacters] = useState([]);
+  //favoritesIDs default: VERSTEHE ICH NICHT or empty array
+  const [favoritesIDs, setFavoritesIDs] = useState(
+    JSON.parse(localStorage.getItem('favoritesIDs')) || []
+  );
   const url = 'https://rickandmortyapi.com/api/character';
+
+  // Fetch Data
   const fetchCharacters = () => {
     fetch(url)
       .then(response => response.json())
       .then(data => setCharacters(data.results));
   };
-
   useEffect(() => {
     fetchCharacters(url);
   }, []);
 
-
-
+  //Save Favorites in LocalStorage
+  useEffect(() => {
+    localStorage.setItem('favoritesIDs', JSON.stringify(favoritesIDs));
+  }, [favoritesIDs]);
 
   return (
     <Grid>
       <Header />
       <main>
-      <Routes>
-      <Route path="/" element={<MainPage characters={characters} />} />
-        <Route path="character/:id" element={<DetailedCharacter characters={characters} />} />
-      </Routes>
+        <Routes>
+          <Route path="/" element={<MainPage characters={characters} />} />
+          <Route
+            path="character/:id"
+            element={
+              <DetailedCharacter
+                characters={characters}
+                favoritesIDs={favoritesIDs}
+                setFavoritesIDs={setFavoritesIDs}
+                // addFavorite={addFavorite}
+                // removeFavorite={removeFavorite}
+              />
+            }
+          />
+        </Routes>
       </main>
       <Navbar />
     </Grid>
@@ -38,12 +56,12 @@ function App() {
 }
 
 const Grid = styled.div`
-display: grid;
-grid-template-rows: 2rem 1fr 3rem;
-height: 100vh;
-main {
-  overflow-y: scroll;
-}
+  display: grid;
+  grid-template-rows: 2rem 1fr 3rem;
+  height: 100vh;
+  main {
+    overflow-y: scroll;
+  }
 `;
 
 export default App;
