@@ -1,12 +1,12 @@
 import React, { useState } from 'react';
-import Card from '../../src/components/card';
+import Card from '../components/Card';
 import styled from 'styled-components';
-import Button from '../../src/components/button';
+import Button from '../components/Button';
 
 const RandomPage = () => {
   const [randomCharacter, setRandomCharacter] = useState(null);
 
-  //Random Page
+  //Random URL/Character
   const getRndChar = () => {
     const url = `https://rickandmortyapi.com/api/character/`;
     const rndInd = Math.floor(Math.random() * 825) + 1;
@@ -15,12 +15,10 @@ const RandomPage = () => {
       .then(data => setRandomCharacter(data));
   };
 
-  // console.log(url);
-
   return (
     <CharactersList role="list">
       <Button
-        label="Random &#10227;"
+        label="Get Random Character &#10227;"
         myFunction={() => {
           getRndChar();
         }}
@@ -34,11 +32,10 @@ const RandomPage = () => {
         />
       ) : (
         <>
-        <Sign>&#9757;</Sign>
-        <p>Click the "Random" &#10227; button!</p>
+          <Sign>&#9757;</Sign>
+          <p>Click the "Random &#10227;" button!</p>
         </>
       )}
-      
     </CharactersList>
   );
 };
@@ -51,7 +48,8 @@ const CharactersList = styled.ul`
 `;
 
 const Sign = styled.div`
-font-size: 5rem;
-`
+  font-size: 5rem;
+  color: white;
+`;
 
 export default RandomPage;

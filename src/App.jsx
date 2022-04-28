@@ -1,24 +1,23 @@
 import React, { useState, useEffect } from 'react';
 import { Routes, Route } from 'react-router-dom';
 // import '../src/style/App.css';
-import '../src/style/globalCSS.css'
+import '../src/style/globalCSS.css';
 // import styled from 'styled-components';
 //Components
-import Header from './components/header';
-import Navbar from './components/navbar';
+import Header from './components/Header';
+import Navbar from './components/Navbar';
 //Pages
 import MainPage from './pages/MainPage';
 import DetailedCharacterPage from './pages/DetailedCharacterPage';
 import FavoritesPage from './pages/FavoritesPages';
-import RandomPage from './pages/RandomPage'
-
+import RandomPage from './pages/RandomPage';
 
 function App() {
   const [characters, setCharacters] = useState([]);
   //favoritesIDs default: Wandelt string in JS-Objekt/Array (Wo: aus dem localStorage.nehmen(Dateiname:favoritesIDS)) or empty array
-  const [favoritesIDs, setFavoritesIDs] = useState(
-    JSON.parse(localStorage.getItem('favoritesIDs')) || []
-  );
+  const [favoritesIDs, setFavoritesIDs] = useState(() => {
+    return JSON.parse(localStorage.getItem('favoritesIDs')) || []
+  });
   const url = 'https://rickandmortyapi.com/api/character';
 
   // Fetch Data
@@ -59,21 +58,13 @@ function App() {
                 characters={characters}
                 favoritesIDs={favoritesIDs}
                 setFavoritesIDs={setFavoritesIDs}
-                // addFavorite={addFavorite}
-                // removeFavorite={removeFavorite}
               />
             }
           />
           <Route
             path="random_character"
             element={
-              <RandomPage
-              // characters={characters}
-              // favoritesIDs={favoritesIDs}
-              // setFavoritesIDs={setFavoritesIDs}
-              // addFavorite={addFavorite}
-              // removeFavorite={removeFavorite}
-              />
+              <RandomPage />
             }
           />
         </Routes>
@@ -91,10 +82,5 @@ function App() {
 //     overflow-y: scroll;
 //   }
 // `;
-
-
-
-
-
 
 export default App;
