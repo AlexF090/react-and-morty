@@ -15,11 +15,6 @@ const Button = ({ myFunction, label, favoritesIDs, currentCharacter }) => {
   
 };
 
-// ? : || || 
-// &&
-// ||
-// %%
-
 const CardButtonStyle = styled.button`
   padding: 0.35rem;
   margin-bottom: 0.5rem;

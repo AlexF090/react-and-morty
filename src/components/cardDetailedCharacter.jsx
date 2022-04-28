@@ -25,8 +25,6 @@ const CardDetailedCharacter = ({ id, currentCharacter, favoritesIDs, saveFavorit
             saveFavorites();
           }}
           favoritesIDs={favoritesIDs}
-          // isFavorite={favoritesIDs.includes(id)}
-          // label={favoButtonText}
           label="Favorite"
           currentCharacter={currentCharacter}
         />
