@@ -4,7 +4,6 @@ import styled from 'styled-components';
 import Button from './Button';
 
 const Card = ({ id, img, name }) => {
-  // console.log(id);
   return (
     <CardLi>
       <CardImg src={img} alt={`Profile Picture ${name}`} />

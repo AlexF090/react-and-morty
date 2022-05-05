@@ -16,6 +16,4 @@ body {
     background: #008000;
 }`;
 
-
-
 export default GlobalStyle;

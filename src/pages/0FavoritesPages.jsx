@@ -3,22 +3,16 @@ import Card from '../components/Card';
 import styled from 'styled-components';
 
 const FavoritesPage = ({ characters, favoritesIDs }) => {
-  // const [favoriteCharacters, setfavoriteCharacters] = useState();
-  
-  // console.clear();
-  // console.log(typeof characters.id);
-
   return (
     <CharactersList role="list">
-      {characters.filter(character => favoritesIDs.includes(character.id)).map(character => (
-        <Card key={character.id} id={character.id} img={character.image} name={character.name} />
-      ))}
-      
+      {characters
+        .filter(character => favoritesIDs.includes(character.id))
+        .map(character => (
+          <Card key={character.id} id={character.id} img={character.image} name={character.name} />
+        ))}
     </CharactersList>
   );
 };
-  
-
 
 const CharactersList = styled.ul`
   display: flex;

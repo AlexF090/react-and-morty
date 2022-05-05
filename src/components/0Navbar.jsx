@@ -12,10 +12,10 @@ const Navbar = () => {
             <li>Home</li>
           </NavLinkStyled>
           <NavLinkStyled to="/favorites">
-          <li>Favorite</li>
+            <li>Favorite</li>
           </NavLinkStyled>
           <NavLinkStyled to="/random_character">
-          <li>Random</li>
+            <li>Random</li>
           </NavLinkStyled>
           <li>Other</li>
         </NavWrapper>
@@ -25,21 +25,18 @@ const Navbar = () => {
 };
 
 const NavLinkStyled = styled(NavLink)`
-text-decoration: none;
-color: #004b23;
-&.active{
-
   text-decoration: none;
-  text-shadow: 2px 2px 2.5px #000000cb;
-}
-
+  color: #004b23;
+  &.active {
+    text-decoration: none;
+    text-shadow: 2px 2px 2.5px #000000cb;
+  }
 `;
 
 const FooterWrapper = styled.footer`
   position: fixed;
   bottom: 0px;
   margin-top: 0.5rem;
-  
 `;
 
 const NavWrapper = styled.ul`
@@ -57,7 +54,5 @@ const NavWrapper = styled.ul`
   list-style-type: none;
   text-decoration: none;
 `;
-
-
 
 export default Navbar;

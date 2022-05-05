@@ -1,6 +1,6 @@
 import styled from 'styled-components';
 import Button from './Button';
-// 
+
 const CardDetailedCharacter = ({ id, currentCharacter, favoritesIDs, saveFavorites }) => {
   return (
     <CardUl>

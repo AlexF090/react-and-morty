@@ -10,23 +10,18 @@ const Header = () => {
   );
 };
 
-// const HeaderBox = styled.header`
-
-// `;
-
 const HeaderWrapper = styled.header`
-position: sticky;
-top: 0;
-/* margin-bottom: 1rem; */
+  position: sticky;
+  top: 0;
 `;
 
 const HeadLine = styled.h1`
-position: sticky;
-  color: #004B23;
+  position: sticky;
+  color: #004b23;
   text-align: center;
   text-shadow: 2px 2px 5px #00000069;
   font-size: 2rem;
-  background-color: #CCFF33;
+  background-color: #ccff33;
   padding: 0.5rem;
 `;
 
